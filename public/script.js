@@ -444,6 +444,13 @@ document.addEventListener("DOMContentLoaded", function () {
       }
     }
 
+    // Upload da procuração do advogado
+    const procuracaoAdvogado = await uploadFile(
+      document.getElementById("procuracaoAdvogado"),
+      "procuracao"
+    );
+    if (procuracaoAdvogado) fileUrls.procuracaoAdvogado = procuracaoAdvogado;
+
     return fileUrls;
   }
 
@@ -1330,6 +1337,13 @@ document.addEventListener("DOMContentLoaded", function () {
       });
 
       html += `</ul>
+    </div>`;
+    }
+
+    if (documentos.procuracaoAdvogado) {
+      html += `<div class="document-item">
+      <span><i class="fas fa-user-tie"></i> Procuração (Advogado):</span>
+      <a href="${documentos.procuracaoAdvogado.url}" target="_blank"><i class="fas fa-download"></i> ${documentos.procuracaoAdvogado.nome}</a>
     </div>`;
     }
 

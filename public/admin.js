@@ -565,7 +565,15 @@ function createDocumentsListComponent(documents) {
             url: documents.documentoCarro.url
         });
     }
-    
+
+    if (documents.procuracaoAdvogado) {
+        docList.push({
+            name: 'Procuração (Advogado)',
+            icon: 'fa-user-tie',
+            url: documents.procuracaoAdvogado.url
+        });
+    }
+
     docList.forEach(doc => {
         const item = document.createElement('div');
         item.className = 'document-item';
